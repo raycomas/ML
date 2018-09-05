@@ -18,7 +18,7 @@ if (size(X,2) ~= size(weights))
   X = [ones(size(X,1), 1) X];
 endif
 
-temp = sigmoid(-X*weights);
+temp = sigmoid(X*weights);
 
 cost = (lambda*sumsq(weights(2:end))/2 - sum(y.*log(temp) + (1-y).*log(1-temp)))/N;
 grad = 1/N * ((temp - y)' * X)' + [0; lambda/N * weights(2:end)];
