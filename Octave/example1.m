@@ -1,3 +1,5 @@
+clear;
+
 addpath('./lib');
 
 % Load data set
@@ -35,14 +37,14 @@ training_price = (price - mu_price) ./ sigma_price;
 % create some models
 % data1 is just the normalized data
 data1 = training_data;
-% data2 = data with squared terms
+% data2 = data1 with squared terms
 data2 = [data1 data1(:,1).^2 data1(:,2).^2 data1(:,3).^2];
 % data3 = data2 with cross terms
 data3 = [data2 data1(:,1).*data1(:,2) ...
                data1(:,1).*data1(:,3) ...
                data1(:,2).*data1(:,3)];
 
-% compute the weights for hte 3 models
+% compute the weights for the 3 models
 weights1 = lrAnalytic(data1, training_price);
 weights2 = lrAnalytic(data2, training_price);
 weights3 = lrAnalytic(data3, training_price);
@@ -52,7 +54,7 @@ weights3 = lrAnalytic(data3, training_price);
 cross_val_data = (val_data - mu_data) ./ sigma_data;
 cross_val_price = (val_price - mu_price) ./ sigma_price;
 
-% create corresponding validation sets for each models
+% create corresponding validation sets for each model
 val_data1 = cross_val_data;
 val_data2 = [val_data1, val_data1(:,1).^2 ...
                         val_data1(:,2).^2 ...
@@ -66,7 +68,9 @@ cost1 = lrCost(weights1, val_data1, cross_val_price)
 cost2 = lrCost(weights2, val_data2, cross_val_price)
 cost3 = lrCost(weights3, val_data3, cross_val_price)
 
-% let's try model #2 - normalize the test data
+% Model #2 should be the winner
+
+% Normalize the test data
 norm_test_data = (test_data - mu_data) ./ sigma_data;
 
 % create the proper data set for model 2
