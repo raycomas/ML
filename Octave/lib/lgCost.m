@@ -14,7 +14,7 @@ function [cost, grad] = lgCost(weights, X, y, lambda = 0)
 %      grad - the gradient for the given weights
 
 N = length(y);   % number of training examples
-if (size(X,2) ~= size(weights))
+if (size(X,2) != size(weights))
   X = [ones(size(X,1), 1) X];
 endif
 

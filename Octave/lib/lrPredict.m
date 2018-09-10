@@ -6,6 +6,10 @@ function y = lrPredict(weights, X)
 %       X is a matrix of data points, expressed as a row vectors. 
 %   Returns the predicted values for X
 
-y = [ones(size(X,1),1) X] * weights;
+if (size(X,2) != size(weights))
+  X = [ones(size(X,1), 1) X];
+endif
+
+y = X * weights;
 
 end
