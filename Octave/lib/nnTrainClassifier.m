@@ -1,13 +1,17 @@
 function [weights, layer_sizes, classes] = nnTrainClassifier(X, labels, layer_sizes, lambda = 0, maxIters = 400)
-%NNTRAINCLASSIFIER Train a neural network classifier
-%   NNTRAINCLASSIFIER(X, labels, layer_sizes, lambda, maxIter) 
-%   Train a neural network classifier
-%     X      is a matrix of data points, expressed as a row vectors
-%     labels is the corresponding labels for X: labels(n) is the label for X(n,:)
-%   Returns
-%     classes      a vector of the unique values in labels.
-%     layer_sizes  a vector containing the size of the hidden layers
-%     Weights  the computed weights for the neural network
+%nnTrainClassifier Train a neural network classifier
+%  [weights layer_sizes classes] = nnTrainClassifier(X, labels, layer_sizes, lambda, maxIter) 
+%  Train a neural network classifier
+%    X       a matrix of data points, expressed as a row vectors
+%    labels  the corresponding labels for X: labels(n) is the label for X(n,:)
+%    layer_sizes   a vector of hidden layer sizes
+%    lambda  the regularization constant to use. If this is zero,
+%            regularization is not used
+%    maxIter the maximum number of iterations to perform
+%  Returns
+%    layer_sizes  a vector containing the sizes of the network
+%    weights      the computed weights for the neural network
+%    classes      a vector of the unique values in labels.
 % 
 
   classes = unique(labels)(:);

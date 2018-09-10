@@ -1,7 +1,9 @@
 function g = sigmoid(z)
-%SIGMOID Compute sigmoid (logistic) function
-%   g = SIGMOID(z) computes the sigmoid of z.
+%sigmoid Compute sigmoid (logistic) function
+%  g = sigmoid(z) 
+%  computes the sigmoid of z.
+%
 
-g = 1.0 ./ (1.0 + exp(-z));
+  g = 1.0 ./ (1.0 + exp(-z));
 
-end
+endfunction
