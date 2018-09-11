@@ -10,6 +10,8 @@ function [Z W] = pcaReduce(X, ret_var = 0.99)
 %    Z      the trasform of X 
 %    W      the matrix that was used to transform X (by computing X * U_red)
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   [U S ~] = svd(cov(X));
   s_diag = diag(S);

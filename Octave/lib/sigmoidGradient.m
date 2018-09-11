@@ -3,6 +3,8 @@ function g = sigmoidGradient(z)
 %  g = sigmoidGradient(z) 
 %  computes the gradient of the sigmoid function evaluated at z.
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   temp = sigmoid(z);
   g = temp.*(1 - temp);

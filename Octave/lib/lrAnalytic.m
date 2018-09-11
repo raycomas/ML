@@ -9,6 +9,8 @@ function [weights] = lrAnalytic(X, y, lambda = 0)
 %  Returns 
 %    weights  the computed weight vector, which contain an extra w0 bias component
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   N = length(y);   % number of training examples
   X = [ ones(N, 1) X ];   % Append bias x0 = 1 to each data point

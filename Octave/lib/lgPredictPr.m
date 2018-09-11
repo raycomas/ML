@@ -7,7 +7,9 @@ function p = lgPredictPr(weights, X)
 %  Returns
 %    y  a matrix where y(n,k) is the probablity that x(n,:) belongs to class k,
 %       and where sum(y(n,:)) = 1.
-%    
+%
+% Copyright (C) 2018 Ray Comas
+%
 
   if (size(X,2) != size(weights))
     X = [ones(size(X,1), 1) X];

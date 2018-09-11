@@ -3,6 +3,8 @@ function g = sigmoid(z)
 %  g = sigmoid(z) 
 %  computes the sigmoid of z.
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   g = 1.0 ./ (1.0 + exp(-z));
 

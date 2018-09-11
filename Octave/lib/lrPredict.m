@@ -8,6 +8,8 @@ function y = lrPredict(weights, X)
 %  Returns
 %    y  the predicted values for X
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   if (size(X,2) != size(weights))
     X = [ones(size(X,1), 1) X];

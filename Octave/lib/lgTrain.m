@@ -13,7 +13,9 @@ function [weights, classes] = lgTrain(X, labels, lambda = 0, maxIters = 400)
 %            passed as a parameter to lgClassify to classify data points
 %    classes a vector of the unique values in labels. Pass this vector as
 %            a parameter to lgClassify
-% 
+%
+% Copyright (C) 2018 Ray Comas
+%
 
   classes = unique(labels)(:);
   weights = [];

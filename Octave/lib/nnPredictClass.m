@@ -1,7 +1,7 @@
-function y = nnPredict(weights, layer_sizes, X)
-%nnPredict Make a prediction for the value of data points
-%  nnPredict(weights, layer_sizes, X) 
-%  Make a prediction for the value of data points using a neural network
+function y = nnPredictClass(weights, layer_sizes, X)
+%nnPredictClass Make a classification prediction for the value of data points
+%  nnPredictClass(weights, layer_sizes, X) 
+%  Make a classficiation prediction for the value of data points using a neural network
 %    weights      the weight vector obtained from nnTrainClassifier
 %    layer_sizes  a vector containing the sizes of the network layers
 %                   layer_sizes(1) is the size of the input layer

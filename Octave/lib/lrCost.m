@@ -13,6 +13,8 @@ function [cost, grad] = lrCost(weights, X, y, lambda = 0)
 %     cost  the computed cost for the given weights
 %     grad  the gradient for the given weights
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   N = length(y);   % number of training examples
   if (size(X,2) != size(weights))

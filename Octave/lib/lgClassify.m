@@ -12,6 +12,8 @@ function y = lgClassify(classes, weights, X)
 %    y  a vector indicating the classification of the data points in X,
 %       so y(n) is the classification of X(n,:)
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   [~, y] = max(lgPredict(weights, X), [], 2);
   y = classes(y);

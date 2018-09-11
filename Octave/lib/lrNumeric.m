@@ -13,6 +13,8 @@ function [weights, cost] = lrNumeric(X, y, lambda = 0, maxIter = 400)
 %    cost    an array of cost values at each iteration, which can be examined or
 %            plotted to determine whether (and how quickly) convergence occurred
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   N = length(y);   % number of training examples
   X = [ ones(N, 1) X ];   % Append bias x0 = 1 to each data point

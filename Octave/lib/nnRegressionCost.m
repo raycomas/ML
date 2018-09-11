@@ -1,10 +1,9 @@
-function [cost, grad] = nnClassifierCost(weights, classes, X, y, layer_sizes, lambda = 0)
-%nnClassifierCost Compute cost and gradient for neural networks, intended for
+function [cost, grad] = nnRegressionCost(weights, X, y, layer_sizes, lambda = 0)
+%nnRegressionCost Compute cost and gradient for neural networks, intended for
 %        use with fminunc(), minimize(), and similar optimization functions.
-%  [cost grad] = nnClassifierCost(weights, classes, X, y, layer_sizes, lambda)
-%  computes the cost and gradient for a neural networks classifer
+%  [cost grad] = nnRegressionCost(weights, X, y, layer_sizes, lambda)
+%  computes the cost and gradient a regression neural network
 %    weights  the linear regression weight vector
-%    classes  the vector of possible classes
 %    X        the matrix whose rows are the data points of the training set
 %             each row should already contain a bias term
 %    y        the vector of labels, where y(n) corresponds to X(n,:)
@@ -38,17 +37,15 @@ function [cost, grad] = nnClassifierCost(weights, classes, X, y, layer_sizes, la
 
     z = A{layer} * theta';
     Z{layer + 1} = z;
-    A{layer + 1} = [ ones(size(z), 1) sigmoid(z) ];    
+    A{layer + 1} = [ ones(size(z), 1) tanh(z) ];    
   endfor
 
   A_n = A{layers}(:,2:end);
-  y_vec = classes(:)' == y;
-  cost = (lambda*sumsq(reg_weights)/2 ...
-		      - sum(sum(y_vec.*log(A_n) + (1 - y_vec).*log(1 - A_n))))/N;
+  cost = (lambda*sumsq(reg_weights)/2 - sum(sum(log(A_n))))/N;
 
   % Backpropagation
   grad = [];
-  D = A_n - y_vec;
+  D = A_n;
   for layer = (layers - 1):-1:1 
     T_n = T{layer};
     A_n = A{layer};  
@@ -56,7 +53,7 @@ function [cost, grad] = nnClassifierCost(weights, classes, X, y, layer_sizes, la
     grad = [ curr_grad(:) ; grad ];
   
     if (layer > 1)
-	    D = (D*T_n)(:,2:end).*sigmoidGradient(Z{layer});
+	    D = (D*T_n)(:,2:end).*tanhGradient(Z{layer});
     endif
   endfor
 
