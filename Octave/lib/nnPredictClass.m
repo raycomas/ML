@@ -12,6 +12,8 @@ function y = nnPredictClass(weights, layer_sizes, X)
 %    y  A vector containing the predictions of the points in X:
 %       y(n) is the prediction of X(n,:)
 %
+% Copyright (C) 2018 Ray Comas
+%
 
   N = size(X, 1);
   theta_base = 0;

@@ -14,8 +14,10 @@ function y = nnClassify(classes, weights, layer_sizes, X)
 %    y   a vector indicating the classification of the data points in X,
 %        so y(n) is the classification of X(n,:)
 %
+% Copyright (C) 2018 Ray Comas
+%
 
-  [~, y] = max(nnPredict(weights, layer_sizes, X), [], 2);
+  [~, y] = max(nnPredictClass(weights, layer_sizes, X), [], 2);
   y = classes(y);
 
 endfunction
