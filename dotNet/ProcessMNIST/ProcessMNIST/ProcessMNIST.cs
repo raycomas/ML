@@ -170,7 +170,7 @@ namespace ProcessMNIST
         {
             int[] items = Enumerable.Range(0, size).ToArray();
 
-            // Generate a random permutaion of "size" elements
+            // Generate a random permutation of "size" elements
             Random rand = new Random();
             for (int ix = 0; ix < size; ++ix)
             {
