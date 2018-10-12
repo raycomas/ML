@@ -1,4 +1,4 @@
-function [Z W S] = pcaReduce(X, ret_var = 0.99)
+function [Z W S S_Pct] = pcaReduce(X, ret_var = 0.99)
 %pcaReduce  Perform Principal Component Analysis on X
 %  [Z W S] = pcaReduce(X, ret_var)
 %  Performs Principal Component Analysis on X and reduce its dimensionality
@@ -9,7 +9,8 @@ function [Z W S] = pcaReduce(X, ret_var = 0.99)
 %  Returns
 %    Z      the trasform of X 
 %    W      the matrix that was used to transform X (by computing X * W)
-%    S      The variance percentages for each column of W
+%    S      The variance for each column of W
+%    S_Pct  The variance percentages for each column of W
 %
 % Copyright (C) 2018 Ray Comas
 %
@@ -27,6 +28,7 @@ function [Z W S] = pcaReduce(X, ret_var = 0.99)
 
   W = U(:,1:k);
   Z = X * W;
-  S = s_diag(1:k) ./ var_tot;
+  S = s_diag(1:k);
+  S_Pct = S ./ var_tot;
   
 endfunction
