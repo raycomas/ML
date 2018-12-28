@@ -1,6 +1,6 @@
 function y = lgClassify(classes, weights, X)
 %lgClassify Classify data points
-%  y = lgClassify(K, weights, X) 
+%  y = lgClassify(classes, weights, X) 
 %  Classify a set of data points using  weights computed with logistic regression
 %    classes  a vector contaiing the classes
 %    weights  the matrix whose column vectors are the weights 

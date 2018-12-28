@@ -10,7 +10,7 @@ function y = lgPredict(weights, X)
 % Copyright (C) 2018 Ray Comas
 %
 
-  if (size(X,2) != size(weights))
+  if (size(X,2) != size(weights,1))
     X = [ones(size(X,1), 1) X];
   endif
 
