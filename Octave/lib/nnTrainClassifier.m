@@ -23,6 +23,6 @@ function [weights, layer_sizes, classes] = nnTrainClassifier(X, labels, layer_si
   weights = (rand(num_weights,1) * 0.12 - 0.12);
   X = [ones(size(X, 1), 1) X];
 
-  [weights ~ ~] = minimize(weights, @nnClassifierCost, maxIters, ...
+  [weights, ~, ~] = minimize(weights, @nnClassifierCost, maxIters, ...
                            classes, X, labels, layer_sizes, lambda);
 endfunction
