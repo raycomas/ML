@@ -21,6 +21,6 @@ function [weights, layer_sizes] = nnTrainRegression(X, labels, layer_sizes, lamb
   weights = (rand(num_weights,1) * 0.12 - 0.12);
   X = [ones(size(X, 1), 1) X];
 
-  [weights ~ ~] = minimize(weights, @nnRegressionCost, maxIters, ...
+  [weights, ~, ~] = minimize(weights, @nnRegressionCost, maxIters, ...
                                X, labels, layer_sizes, lambda);
 endfunction

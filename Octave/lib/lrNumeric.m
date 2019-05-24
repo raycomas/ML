@@ -20,6 +20,6 @@ function [weights, cost] = lrNumeric(X, y, lambda = 0, maxIter = 400)
   X = [ ones(N, 1) X ];   % Append bias x0 = 1 to each data point
 
   weights = zeros(size(X,2), 1);   % initialize weights to all zeros
-  [weights cost ~] = minimize(weights, @lrCost, maxIter, X, y, lambda);
+  [weights, cost, ~] = minimize(weights, @lrCost, maxIter, X, y, lambda);
 
 endfunction

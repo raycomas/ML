@@ -15,7 +15,7 @@ function [Z W S S_Pct] = pcaReduce(X, ret_var = 0.99)
 % Copyright (C) 2018 Ray Comas
 %
 
-  [U S ~] = svd(cov(X));
+  [U, S, ~] = svd(cov(X));
   s_diag = diag(S);
   var_tot = sum(s_diag);
   
